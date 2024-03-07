@@ -15,52 +15,52 @@ $isSuperAdmin = Yii::$app->user->can('user');
 $sideBarMenus = [
 
     [
-        'label' => Yii::t('app', 'Practice'),
+        'label' => Yii::t('app', 'Position'),
         'icon' => 'fas fa-cogs',
-        'url' => Url::to(['/practice']),
-        'active' => in_array($route, ['practice/index', 'practice/update', 'practice/create', 'practice/view']),
+        'url' => Url::to(['/position']),
+        'active' => in_array($route, ['position/index', 'position/update', 'position/create', 'position/delete']),
         'isVisible' => true,
         'items' => [],
     ],
 
     [
-        'label' => Yii::t('app', 'Maruza'),
+        'label' => Yii::t('app', 'Employee'),
+        'icon' => 'fas fa-cogs',
+        'url' => Url::to(['/employee']),
+        'active' => in_array($route, ['employee/index', 'employee/update', 'employee/create', 'employee/delete', 'employee/view']),
+        'isVisible' => true,
+        'items' => [],
+    ],
+
+    [
+        'label' => Yii::t('app', 'RBAC'),
         'icon' => 'fas fa-chalkboard',
         'url' => '#',
         'isVisible' => true,
         'active' => in_array($route, [
-            'theory/index', 'theory/view', 'theory/update', 'theory/create', 'theory/delete',
-            'task-question/index', 'task-question/view', 'task-question/update', 'task-question/create', 'task-question/delete',
-
+            'rbac/auth-assignment/index', 'rbac/auth-assignment/view', 'rbac/auth-assignment/update', 'rbac/auth-assignment/create', 'rbac/auth-assignment/delete',
+            'rbac/auth-item/index', 'rbac/auth-item/view', 'rbac/auth-item/update', 'rbac/auth-item/create', 'rbac/auth-item/delete',
         ]),
         'items' => [
             [
-                'label' => Yii::t('app', 'Nazariya'),
+                'label' => Yii::t('app', 'Auth-Assigment'),
                 'icon' => 'far fa-circle nav-icon',
-                'url' => Url::to(['/theory']),
+                'url' => Url::to(['/rbac/auth-assignment']),
                 'isVisible' => true,
-                'active' => in_array($route, ['theory/index', 'theory/view', 'theory/update', 'theory/create', 'theory/delete']),
+                'active' => in_array($route, ['rbac/auth-assignment/index', 'rbac/auth-assignment/view', 'rbac/auth-assignment/update', 'rbac/auth-assignment/create', 'rbac/auth-assignment/delete']),
                 'items' => [],
             ],
             [
-                'label' => Yii::t('app', 'Savol va Top'),
+                'label' => Yii::t('app', 'Auth-Item'),
                 'icon' => 'far fa-circle nav-icon',
-                'url' => Url::to(['/task-question']),
+                'url' => Url::to(['/rbac/auth-item']),
                 'isVisible' => true,
-                'active' => in_array($route, ['task-question/index', 'task-question/view', 'task-question/update', 'task-question/create', 'task-question/delete']),
-                'items' => []
+                'active' => in_array($route, ['rbac/auth-item/index', 'rbac/auth-item/view', 'rbac/auth-item/update', 'rbac/auth-item/create', 'rbac/auth-item/delete']),
+                'items' => [],
             ],
         ]
     ],
 
-    [
-        'label' => Yii::t('app', 'Data'),
-        'icon' => 'fas fa-database',
-        'url' => Url::to(['/data']),
-        'active' => in_array($route, ['data/index', 'data/view', 'data/update', 'data/create', 'data/delete']),
-        'isVisible' => true,
-        'items' => [],
-    ],
 
     [
         'label' => Yii::t('app', 'Sozlamalar'),

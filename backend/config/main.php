@@ -16,9 +16,8 @@ return [
         'profile-manager' => [
             'class' => 'backend\modules\profilemanager\Module'
         ],
-        'translate-manager' => [
-            'class' => 'wokster\translationmanager\TranslationManager',
-            'languages' => ['uz','ru'],
+        'rbac' => [
+            'class' => backend\modules\rbac\Module::class,
         ],
     ],
     'components' => [
