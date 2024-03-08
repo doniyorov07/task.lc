@@ -12,6 +12,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $item_name
  * @property string $user_id
  * @property int|null $created_at
+ * @property int|null $type
  *
  * @property AuthItem $itemName
  */
@@ -43,6 +44,7 @@ class AuthAssignment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['type'], 'boolean'],
             [['item_name', 'user_id'], 'required'],
             [['created_at'], 'integer'],
             [['item_name', 'user_id'], 'string', 'max' => 64],
@@ -60,6 +62,7 @@ class AuthAssignment extends \yii\db\ActiveRecord
             'item_name' => 'Item Name',
             'user_id' => 'User ID',
             'created_at' => 'Created At',
+            'type' => 'Notification'
         ];
     }
 

@@ -12,25 +12,11 @@ use yii\filters\VerbFilter;
 /**
  * PositionController implements the CRUD actions for Position model.
  */
-class PositionController extends Controller
+class PositionController extends SiteController
 {
     /**
      * @inheritDoc
      */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
 
     /**
      * Lists all Position models.

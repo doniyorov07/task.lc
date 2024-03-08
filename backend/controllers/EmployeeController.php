@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+use backend\modules\rbac\models\AuthAssignment;
+use common\enums\NotificationEnums;
 use common\models\Employee;
 use common\models\search\EmployeeSearch;
 use Yii;
@@ -12,31 +14,34 @@ use yii\filters\VerbFilter;
 /**
  * EmployeeController implements the CRUD actions for Employee model.
  */
-class EmployeeController extends Controller
+class EmployeeController extends SiteController
 {
-    /**
-     * @inheritDoc
-     */
-    public function behaviors()
+
+    public function actionBirthday(): string
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+        $datetime = new \DateTime();
+        $time = $datetime->format('H:i:s');
+
+        if ($time >= '08:00:00') {
+
+            $employee = Employee::find()
+                ->where(['DATE_FORMAT(birthday, "%m-%d")' => date('m-d', strtotime($time))])
+                ->one();
+
+            $user = Yii::$app->user->id;
+            $check = AuthAssignment::find()->where(['user_id' => $user, 'type' => NotificationEnums::NOTIFICATION])->one();
+
+            return $this->render('birthday', [
+                'employee' => $employee,
+                'check' => $check,
+            ]);
+        } else {
+            return '';
+        }
     }
 
-    /**
-     * Lists all Employee models.
-     *
-     * @return string
-     */
+
+
     public function actionIndex()
     {
         $searchModel = new EmployeeSearch();

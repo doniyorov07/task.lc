@@ -33,6 +33,15 @@ $sideBarMenus = [
     ],
 
     [
+        'label' => Yii::t('app', 'Birthday'),
+        'icon' => 'fas fa-cogs',
+        'url' => Url::to(['/employee/birthday']),
+        'active' => in_array($route, ['employee/birthday', 'employee/update', 'employee/create', 'employee/delete', 'employee/view']),
+        'isVisible' => true,
+        'items' => [],
+    ],
+
+    [
         'label' => Yii::t('app', 'RBAC'),
         'icon' => 'fas fa-chalkboard',
         'url' => '#',
@@ -43,7 +52,7 @@ $sideBarMenus = [
         ]),
         'items' => [
             [
-                'label' => Yii::t('app', 'Auth-Assigment'),
+                'label' => Yii::t('app', 'Userni Role ga biriktirish'),
                 'icon' => 'far fa-circle nav-icon',
                 'url' => Url::to(['/rbac/auth-assignment']),
                 'isVisible' => true,
@@ -51,7 +60,7 @@ $sideBarMenus = [
                 'items' => [],
             ],
             [
-                'label' => Yii::t('app', 'Auth-Item'),
+                'label' => Yii::t('app', 'Role yaratish'),
                 'icon' => 'far fa-circle nav-icon',
                 'url' => Url::to(['/rbac/auth-item']),
                 'isVisible' => true,

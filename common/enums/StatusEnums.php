@@ -15,6 +15,6 @@ interface StatusEnums
 
     public const COLOR = [
         self::ACTIVE => '<i class="badge badge-success">Faol</i>',
-        self::INACTIVE => '<i class="badge badge-danger">Faol dssads</i>',
+        self::INACTIVE => '<i class="badge badge-danger">Faol emas</i>',
     ];
 }

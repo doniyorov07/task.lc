@@ -7,6 +7,7 @@ use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
 /** @var backend\modules\rbac\models\AuthAssignment $model */
+/** @var backend\modules\rbac\models\AuthAssignment $user */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
@@ -27,6 +28,10 @@ use yii\widgets\ActiveForm;
         ],
     ]);
     ?>
+
+    <?= $form->field($model, 'type')->dropDownList(
+        \common\enums\NotificationEnums::LABELS,
+    ) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

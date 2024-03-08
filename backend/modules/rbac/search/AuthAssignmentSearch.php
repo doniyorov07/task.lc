@@ -17,7 +17,7 @@ class AuthAssignmentSearch extends AuthAssignment
     public function rules()
     {
         return [
-            [['item_name', 'user_id'], 'safe'],
+            [['item_name', 'user_id', 'type'], 'safe'],
             [['created_at'], 'integer'],
         ];
     }
@@ -62,7 +62,8 @@ class AuthAssignmentSearch extends AuthAssignment
         ]);
 
         $query->andFilterWhere(['like', 'item_name', $this->item_name])
-            ->andFilterWhere(['like', 'user_id', $this->user_id]);
+            ->andFilterWhere(['like', 'user_id', $this->user_id])
+            ->andFilterWhere(['like', 'type', $this->type]);
 
         return $dataProvider;
     }

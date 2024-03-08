@@ -1,6 +1,7 @@
 <?php
 
 use backend\modules\rbac\models\AuthAssignment;
+use common\enums\NotificationEnums;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -23,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= GridView::widget([
+    <?= GridView::widget(config: [
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -40,6 +41,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'created_at',
                 'value' => function ($model) {
                     return date('d-m-Y H:i:s', $model->created_at);
+                }
+            ],
+            [
+                'attribute' => 'type',
+                'value' => function ($model) {
+                    return \common\enums\NotificationEnums::LABELS[$model->type] ?? null;
                 }
             ],
             [
