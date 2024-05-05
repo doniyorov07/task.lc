@@ -22,7 +22,7 @@ class EmployeeController extends SiteController
         $datetime = new \DateTime();
         $time = $datetime->format('H:i:s');
 
-        if ($time >= '08:00:00') {
+        if ($time >= '04:00:00') {
 
             $employee = Employee::find()
                 ->where(['DATE_FORMAT(birthday, "%m-%d")' => date('m-d', strtotime($time))])

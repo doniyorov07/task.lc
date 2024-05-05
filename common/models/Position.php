@@ -31,7 +31,7 @@ class Position extends \yii\db\ActiveRecord
                 'class' => TimestampBehavior::className(),
                 'createdAtAttribute' => 'created_at',
                 'updatedAtAttribute' => 'updated_at',
-                'value' => time(),
+                'value' => date('Y-m-d H:i:s'),
             ],
         ];
     }

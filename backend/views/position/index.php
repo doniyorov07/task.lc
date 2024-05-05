@@ -32,18 +32,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id',
             'name',
-            [
-                'attribute' => 'created_at',
-                'value' => function ($model) {
-                    return date('d-m-Y H:i:s', $model->created_at);
-                }
-            ],
-            [
-                'attribute' => 'updated_at',
-                'value' => function ($model) {
-                    return date('d-m-Y H:i:s', $model->updated_at);
-                }
-            ],
+            'created_at',
+            'updated_at',
             [
                 'attribute' => 'status',
                 'format' => 'raw',
